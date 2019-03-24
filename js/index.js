@@ -1,19 +1,24 @@
 $(function () {
-    const property = "hc-key";
+    const property = 'hc-key';
+
     const visited_countries = [
-        'de', // Germany
-        'fr', // France
-        'gb', // Britain
-        'pl', // Poland
-        'ru', // Russia
-        'ua', // Ukraine
-        'cz', // Czech
-        'si', // Slovenia
-        'sk', // Slovakia
-        'al', // Albania
-        'at', // Österreich
-        'kr', // South Korea
+
+        'de',  // Germany
+        'fr',  // France
+        'gb',  // Britain
+        'pl',  // Poland
+        'ru',  // Russia
+        'ua',  // Ukraine
+        'cz',  // Czech
+        'si',  // Slovenia
+        'sk',  // Slovakia
+        'al',  // Albania
+        'at',  // Österreich
+        'kr',  // South Korea
+
+
     ]
+
     const visited_states_in_india = [
         // 19/35
         'in-2984', // Gujarat
@@ -34,7 +39,7 @@ $(function () {
         'in-tn',  // Tamil Nadu
         'in-up',  // Uttar Pradesh
         'in-ut',  // Utrakhand
-        'in-wb',   // West Bengal
+        'in-wb'   // West Bengal
     ]
 
     const visited_states_in_us = [
@@ -58,16 +63,18 @@ $(function () {
     ];
 
     function getDrilldown(data, visited) {
-        $.each(data, function (i) {
+        $.each(data, function(i) {
             this.value = visited.indexOf(this.properties[property]);
         });
         return data;
     }
-    var world_data = Highcharts.geojson(Highcharts.maps['custom/world']);
 
-    var us_data = Highcharts.geojson(Highcharts.maps['countries/us/us-all']);
+    // Fetch data
+    var world_data =  Highcharts.geojson(Highcharts.maps['custom/world']);
 
-    var india_data = Highcharts.geojson(Highcharts.maps['countries/in/custom/in-all-disputed']);
+    var us_data =  Highcharts.geojson(Highcharts.maps['countries/us/us-all']);
+
+    var india_data =  Highcharts.geojson(Highcharts.maps['countries/in/custom/in-all-disputed']);
 
     console.log(india_data);
 
@@ -89,100 +96,98 @@ $(function () {
         this.value = visited_countries.indexOf(this.properties[property]);
     });
 
-    $("#containers").highcharts("Map", {
+    // Instanciate the map
+    $('#container').highcharts('Map', {
         chart: {
             spacingBottom: 20,
             events: {
                 drilldown: function (e) {
                     if (!e.seriesOptions) {
                         var chart = this;
-                        var date = e.point.drilldown;
+                        var data = e.point.drilldown;
                         var label = e.point.drilldownLabel;
+
                         chart.addSeriesAsDrilldown(e.point, {
                             name: label,
                             data: data,
                             dataLabels: {
-                                enable: true,
-                                format: "{point.name}"
+                                enabled: true,
+                                format: '{point.name}'
                             },
                             tooltip: {
-                                headerFormat: "",
-                                pointFormat: "{pount.name}"
+                                headerFormat: '',
+                                pointFormat: '{point.name}'
                             }
                         });
                     }
                     chart.setTitle(null, { text: label });
                 },
                 drillup: function () {
-                    this.setTitle(null, { text: "World" });
+                    this.setTitle(null, { text: 'World' });
                 }
             }
         },
-        title: {
-            text: "Around the world!!!"
+        title : {
+            text : 'Around the world!!!',
         },
+
         subtitle: {
-            text: "World"
+            text: 'World',
         },
 
         mapNavigation: {
             enabled: true,
             enableMouseWheelZoom: false,
             buttonOptions: {
-                verticalAlign: "bottom"
+                verticalAlign: 'bottom'
             }
         },
 
         colorAxis: {
-            dataClasses: [
-                {
-                    from: -100,
-                    to: 0,
-                    color: "#E5F5E0",
-                    name: "Pending"
-                },
-                {
-                    from: 0,
-                    to: 100,
-                    color: "#31A354",
-                    name: "Visited"
-                }
-            ]
+            dataClasses: [{
+                from: -100,
+                to: 0,
+                color: '#E5F5E0',
+                name: 'Pending'
+            }, {
+                from: 0,
+                to: 100,
+                color: '#31A354',
+                name: 'Visited'
+            }]
         },
 
         plotOptions: {
             map: {
                 states: {
                     hover: {
-                        color: "#EEDD66"
+                        color: '#EEDD66'
                     }
                 }
             }
         },
 
-        series: [
-            {
-                name: "World",
-                data: world_data,
-                dataLabels: {
-                    enabled: true,
-                    format: "{point.name}"
-                },
-                tooltip: {
-                    headerFormat: "",
-                    pointFormat: "{point.name}"
-                }
+        series : [{
+            name: 'World',
+            data: world_data,
+            dataLabels: {
+                enabled: true,
+                format: '{point.name}'
+            },
+            tooltip: {
+                headerFormat: '',
+                pointFormat: '{point.name}'
             }
-        ],
+        }],
 
         drilldown: {
             activeDataLabelStyle: {
-                color: "#FFFFFF",
-                textDecoration: "none",
-                textShadow: "0 0 3px #000000"
+                color: '#FFFFFF',
+                textDecoration: 'none',
+                textShadow: '0 0 3px #000000'
             },
             drillUpButton: {
-                relativeTo: "spacingBox",
+                relativeTo: 'spacingBox',
                 position: {
                     x: 0,
                     y: 60

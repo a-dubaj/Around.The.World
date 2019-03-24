@@ -132,7 +132,7 @@ $(function () {
         },
 
         subtitle: {
-            text: 'World',
+            text: 'World Map',
         },
 
         mapNavigation: {

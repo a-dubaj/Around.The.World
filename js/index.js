@@ -3,18 +3,18 @@ $(function () {
 
     const visited_countries = [
 
-        'de',  // Germany
-        'fr',  // France
-        'gb',  // Britain
-        'pl',  // Poland
-        'ru',  // Russia
-        'ua',  // Ukraine
-        'cz',  // Czech
-        'si',  // Slovenia
-        'sk',  // Slovakia
-        'al',  // Albania
-        'at',  // Österreich
-        'kr',  // South Korea
+        'de', // Germany
+        'fr', // France
+        'gb', // Britain
+        'pl', // Poland
+        'ru', // Russia
+        'ua', // Ukraine
+        'cz', // Czech
+        'si', // Slovenia
+        'sk', // Slovakia
+        'al', // Albania
+        'at', // Österreich
+        'kr', // South Korea
 
 
     ]
@@ -22,59 +22,59 @@ $(function () {
     const visited_states_in_india = [
         // 19/35
         'in-2984', // Gujarat
-        'in-ap',  // Andhra Pradesh
-        'in-br',  // Bihar
-        'in-ch',  // Chandigarh
-        'in-dl',  // Delhi
-        'in-ga',  // Goa
-        'in-hp',  // Himachal Pradesh
-        'in-hr',  // Haryana
-        'in-jh',  // Jharkhand
-        'in-jk',  // Jammu and Kashmir
-        'in-ka',  // Karnataka
-        'in-mh',  // Maharashtra
-        'in-or',  // Orissa
-        'in-pb',  // Punjab
-        'in-rj',  // Rajasthan
-        'in-tn',  // Tamil Nadu
-        'in-up',  // Uttar Pradesh
-        'in-ut',  // Utrakhand
-        'in-wb'   // West Bengal
+        'in-ap', // Andhra Pradesh
+        'in-br', // Bihar
+        'in-ch', // Chandigarh
+        'in-dl', // Delhi
+        'in-ga', // Goa
+        'in-hp', // Himachal Pradesh
+        'in-hr', // Haryana
+        'in-jh', // Jharkhand
+        'in-jk', // Jammu and Kashmir
+        'in-ka', // Karnataka
+        'in-mh', // Maharashtra
+        'in-or', // Orissa
+        'in-pb', // Punjab
+        'in-rj', // Rajasthan
+        'in-tn', // Tamil Nadu
+        'in-up', // Uttar Pradesh
+        'in-ut', // Utrakhand
+        'in-wb' // West Bengal
     ]
 
     const visited_states_in_us = [
         // 16/50
-        'us-al',  // Alabama
-        'us-az',  // Arizona
-        'us-ca',  // California
-        'us-fl',  // Florida
-        'us-ga',  // Georgia
-        'us-ky',  // Kentucky
-        'us-ma',  // Massachusetts
-        'us-nj',  // New Jersey
-        'us-nv',  // Nevada
-        'us-ny',  // New York
-        'us-nc',  // North Carolina
-        'us-or',  // Oregon
-        'us-sc',  // South Carolina
-        'us-tn',  // Tennessee
-        'us-wa',  // Washington
-        'us-wi'   // Wisconsin
+        'us-al', // Alabama
+        'us-az', // Arizona
+        'us-ca', // California
+        'us-fl', // Florida
+        'us-ga', // Georgia
+        'us-ky', // Kentucky
+        'us-ma', // Massachusetts
+        'us-nj', // New Jersey
+        'us-nv', // Nevada
+        'us-ny', // New York
+        'us-nc', // North Carolina
+        'us-or', // Oregon
+        'us-sc', // South Carolina
+        'us-tn', // Tennessee
+        'us-wa', // Washington
+        'us-wi' // Wisconsin
     ];
 
     function getDrilldown(data, visited) {
-        $.each(data, function(i) {
+        $.each(data, function (i) {
             this.value = visited.indexOf(this.properties[property]);
         });
         return data;
     }
 
     // Fetch data
-    var world_data =  Highcharts.geojson(Highcharts.maps['custom/world']);
+    var world_data = Highcharts.geojson(Highcharts.maps['custom/world']);
 
-    var us_data =  Highcharts.geojson(Highcharts.maps['countries/us/us-all']);
+    var us_data = Highcharts.geojson(Highcharts.maps['countries/us/us-all']);
 
-    var india_data =  Highcharts.geojson(Highcharts.maps['countries/in/custom/in-all-disputed']);
+    var india_data = Highcharts.geojson(Highcharts.maps['countries/in/custom/in-all-disputed']);
 
     console.log(india_data);
 
@@ -120,15 +120,19 @@ $(function () {
                             }
                         });
                     }
-                    chart.setTitle(null, { text: label });
+                    chart.setTitle(null, {
+                        text: label
+                    });
                 },
                 drillup: function () {
-                    this.setTitle(null, { text: 'World' });
+                    this.setTitle(null, {
+                        text: 'World'
+                    });
                 }
             }
         },
-        title : {
-            text : 'Around the world!!!',
+        title: {
+            text: 'Around the world!!!',
         },
 
         subtitle: {
@@ -167,7 +171,7 @@ $(function () {
             }
         },
 
-        series : [{
+        series: [{
             name: 'World',
             data: world_data,
             dataLabels: {

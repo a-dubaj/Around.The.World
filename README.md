@@ -1,17 +1,17 @@
 # Around The World
 
-This view displays while working app with active: pending and visited switch. 
+This map represents all countries that I Was visiting over a few years.  
 
 <p align="center">
   <img src="images/first_look.png">
 </p>
 
-This is an example of visited switch.
+This is an example of visited countries.
 <p align="center">
   <img src="images/visited.png">
 </p>
 
-Example of pending switch. 
+Example of pending countries. 
 <p align="center">
   <img src="images/pending.png">
 </p>

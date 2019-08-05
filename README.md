@@ -1,6 +1,6 @@
-# Around The World
+## Around The World
 
-This map represents all countries that I Was visiting over a few years.  
+This map represents all countries that I was visiting over a few years. This is moustly buisness and provate trips.   
 
 <p align="center">
   <img src="images/first_look.png">

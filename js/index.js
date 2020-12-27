@@ -2,7 +2,6 @@ $(function () {
     const property = 'hc-key';
 
     const visited_countries = [
-
         'de', // Germany
         'fr', // France
         'gb', // Britain
@@ -15,8 +14,6 @@ $(function () {
         'al', // Albania
         'at', // Österreich
         'kr', // South Korea
-
-
     ]
 
     const visited_states_in_india = [
@@ -71,12 +68,9 @@ $(function () {
 
     // Fetch data
     var world_data = Highcharts.geojson(Highcharts.maps['custom/world']);
-
     var us_data = Highcharts.geojson(Highcharts.maps['countries/us/us-all']);
-
     var india_data = Highcharts.geojson(Highcharts.maps['countries/in/custom/in-all-disputed']);
 
-    console.log(india_data);
 
     // Set drilldown pointers
     $.each(world_data, function (i) {

@@ -6,7 +6,7 @@
 * [Demo](#demo)
 
 ## Genral info
-This map represents all countries that I was visiting over a few years. This is moustly buisness and provate trips. As you can easily see, these are mianly European and Asian countries. 
+This map represents all countries that I was visiting over a few years. This is mostly business and private trips. As you can easily see, these are mainly European and Asian countries.
 
 <p align="center">
   <img src="images/first_look.png">

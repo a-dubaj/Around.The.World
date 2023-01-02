@@ -24,7 +24,7 @@ Countries that I have not yet visited are marked in light green.
 </p>
 
 ## Technologies
-* JavaScritp
+* JavaScript
 * d3.js
 
 ## Demo
